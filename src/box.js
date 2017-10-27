@@ -9,17 +9,16 @@ export default class Box extends Component {
     super(props);
     this.state = {
       targetNumber: 0,
-      attemptedGuesses: [1, 22],
+      attemptedGuesses: [],
       temperature: 'cold'
     }
   }
 
-  guess(guessedNumber = 22) {
-    this.setState({attemptedGuesses: [{guessedNumber}, ...this.state.attemptedGuesses]});
+  guess(guessedNumber) {
+    this.setState({attemptedGuesses: [guessedNumber, ...this.state.attemptedGuesses]});
   }
 
   render() {
-
     const guesses = this.state.attemptedGuesses.map((guess, index) => 
       <GuessedNumber key={index} number={guess} /> 
     );
@@ -30,7 +29,7 @@ export default class Box extends Component {
           {this.state.temperature}
         </header>
         <div>
-          <GuessForm />
+          <GuessForm onSubmit={(guessedNumber) => this.guess(guessedNumber)} />
           <Counter count={this.state.attemptedGuesses.length}/>
         </div>
         <div className="list">
