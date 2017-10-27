@@ -1,5 +1,6 @@
 import React from 'react';
 import './box.css';
+import GuessForm from './guess-form';
 
 export default function Box(props) {
   return (
@@ -8,9 +9,7 @@ export default function Box(props) {
         Status Component: Hot or Cold?
       </header>
       <div>
-        Guess Component
-        | Field |
-        | button|
+        <GuessForm />
         |counter|
       </div>
       <div>
