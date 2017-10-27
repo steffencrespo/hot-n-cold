@@ -31,7 +31,7 @@ export default class Box extends Component {
         </header>
         <div>
           <GuessForm />
-          <Counter />
+          <Counter count={this.state.attemptedGuesses.length}/>
         </div>
         <div className="list">
           {guesses}
