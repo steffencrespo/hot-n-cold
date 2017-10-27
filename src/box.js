@@ -9,22 +9,32 @@ export default class Box extends Component {
     super(props);
     this.state = {
       targetNumber: 0,
-      attemptedGuesses: 0
+      attemptedGuesses: [1, 22],
+      temperature: 'cold'
     }
   }
 
+  guess(guessedNumber = 22) {
+    this.setState({attemptedGuesses: [{guessedNumber}, ...this.state.attemptedGuesses]});
+  }
+
   render() {
+
+    const guesses = this.state.attemptedGuesses.map((guess, index) => 
+      <GuessedNumber key={index} number={guess} /> 
+    );
+
     return (
       <div className="box">
         <header>
-          Status Component: Hot or Cold?
+          {this.state.temperature}
         </header>
         <div>
           <GuessForm />
           <Counter />
         </div>
         <div className="list">
-          <GuessedNumber number={1} /><GuessedNumber number={2} />
+          {guesses}
         </div>
       </div>
     );
