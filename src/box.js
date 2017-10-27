@@ -2,7 +2,7 @@ import React from 'react';
 import './box.css';
 import GuessForm from './guess-form';
 import Counter from './counter';
-import GuessedNumer from './guessed-number';
+import GuessedNumber from './guessed-number';
 
 export default function Box(props) {
   return (
@@ -15,7 +15,7 @@ export default function Box(props) {
         <Counter />
       </div>
       <div className="list">
-        <GuessedNumer number={1} /><GuessedNumer number={2} />
+        <GuessedNumber number={1} /><GuessedNumber number={2} />
       </div>
     </div>
   );
