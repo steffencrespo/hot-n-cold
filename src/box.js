@@ -2,6 +2,7 @@ import React from 'react';
 import './box.css';
 import GuessForm from './guess-form';
 import Counter from './counter';
+import GuessedNumer from './guessed-number';
 
 export default function Box(props) {
   return (
@@ -13,8 +14,8 @@ export default function Box(props) {
         <GuessForm />
         <Counter />
       </div>
-      <div>
-        Counter Component
+      <div className="list">
+        <GuessedNumer number={1} /><GuessedNumer number={2} />
       </div>
     </div>
   );
