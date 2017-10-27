@@ -3,7 +3,7 @@ import './box.css';
 
 export default function Box(props) {
   return (
-    <div className="Box">
+    <div className="box">
       <header>
         Status Component: Hot or Cold?
       </header>
