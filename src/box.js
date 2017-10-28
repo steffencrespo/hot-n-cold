@@ -8,14 +8,23 @@ export default class Box extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      targetNumber: 0,
+      targetNumber: 10,
       attemptedGuesses: [],
       temperature: 'cold'
     }
   }
 
   guess(guessedNumber) {
+    this.hotOrCold(guessedNumber);
     this.setState({attemptedGuesses: [guessedNumber, ...this.state.attemptedGuesses]});
+  }
+
+  hotOrCold(guessedNumber) {
+    if (guessedNumber !== this.state.targetNumber) {
+      this.setState({temperature: 'cold'});
+    } else {
+      this.setState({temperature: 'hot'});
+    }
   }
 
   render() {
