@@ -37,8 +37,8 @@ export default class Box extends Component {
         <header>
           {this.state.temperature}
         </header>
-        <div>
-          <GuessForm onSubmit={(guessedNumber) => this.guess(guessedNumber)} />
+        <div class="guess-frame">
+          <GuessForm onGuess={(guessedNumber) => this.guess(guessedNumber)} />
           <Counter count={this.state.attemptedGuesses.length}/>
         </div>
         <div className="list">
