@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .box {
   border: 1px solid black;
   width: 20%;
@@ -13,4 +17,9 @@
   margin-left: -10px;
   margin-right: -10px;
   height: 33.3%;
+}
+
+.guess-frame {
+  background-color: gray;
+  margin: auto;
 }
