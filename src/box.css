@@ -1,6 +1,16 @@
 .box {
   border: 1px solid black;
   width: 20%;
+  height: 200px;
   margin: auto;
   padding: 10px;
+}
+
+.box header {
+  background-color: red;
+  border: 1px solid red;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  height: 33.3%;
 }
