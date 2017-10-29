@@ -8,23 +8,23 @@ export default class Box extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      targetNumber: 10,
+      targetNumber: '10',
       attemptedGuesses: [],
       temperature: 'cold'
     }
   }
 
   guess(guessedNumber) {
-    this.hotOrCold(guessedNumber);
-    this.setState({attemptedGuesses: [guessedNumber, ...this.state.attemptedGuesses]});
-  }
-
-  hotOrCold(guessedNumber) {
+    let temperature;
     if (guessedNumber !== this.state.targetNumber) {
-      this.setState({temperature: 'cold'});
-    } else {
-      this.setState({temperature: 'hot'});
+      temperature = 'cold';
+    } 
+
+    else if (guessedNumber == this.state.targetNumber) {
+      temperature = 'hot';
     }
+
+    this.setState({temperature, attemptedGuesses: [...this.state.attemptedGuesses, guessedNumber]});
   }
 
   render() {
@@ -35,9 +35,9 @@ export default class Box extends Component {
     return (
       <div className="box">
         <header>
-          {this.state.temperature}
+          <div>{this.state.temperature}</div>
         </header>
-        <div class="guess-frame">
+        <div className="guess-frame">
           <GuessForm onGuess={(guessedNumber) => this.guess(guessedNumber)} />
           <Counter count={this.state.attemptedGuesses.length}/>
         </div>

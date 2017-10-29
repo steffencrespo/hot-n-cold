@@ -13,7 +13,7 @@ export default class GuessForm extends Component {
 
   render() {
       return (
-        <form className="guess-form" onGuess={ e => this.onGuess(e) }>
+        <form className="guess-form" onSubmit={ e => this.onGuess(e) }>
           <input type="number" className="guess-input" placeholder="enter your guess"
             ref={ input => this.input = input} />
           <button className="guess-button">Guess</button>
