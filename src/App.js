@@ -58,7 +58,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Header onNewGame={() => this.newGame()} />
         <GuessSection feedback={this.state.feedback}
               onGuess={(number) => this.guess(number)} />
