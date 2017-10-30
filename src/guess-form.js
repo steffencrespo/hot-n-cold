@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './guess-form.css'
+
 export default class GuessForm extends Component {
   onGuess(e) {
     e.preventDefault();
@@ -13,10 +15,11 @@ export default class GuessForm extends Component {
 
   render() {
       return (
-        <form className="guess-form" onSubmit={ e => this.onGuess(e) }>
-          <input type="number" className="guess-input" placeholder="enter your guess"
+        <form onSubmit={ e => this.onGuess(e) }>
+          <label htmlFor='userGuess'>Enter your guess</label>
+          <input type='text' name='userGuess' id='userGuess' className='text' placeholder={Math.round(Math.random() * 100)} required
             ref={ input => this.input = input} />
-          <button className="guess-button">Guess</button>
+          <input type='submit' id="guessButton" className="button" name="submit" value="Guess"/>
         </form>
       );
     }
