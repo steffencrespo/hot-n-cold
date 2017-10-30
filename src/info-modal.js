@@ -1,4 +1,4 @@
-import React, { Component } form 'react';
+import React, { Component } from 'react';
 
 import './info-modal.css';
 
@@ -27,7 +27,6 @@ export default class InfoModal extends Component {
           </div>
         </div>
       </div>
-      );
-    }
-  }
+    );
+  } 
 }

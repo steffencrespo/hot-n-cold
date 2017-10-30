@@ -19,13 +19,13 @@ export default class Header extends Component {
   render() {
     let infoModal;
     if (this.state.showInfoModal) {
-      infoModal = <InfoModal onClose={() => this.toggleInfoModal()}/>;
+      infoModal = <InfoModal onClose={() => this.toggleInfoModal()} />;
     }
 
     return (
       <header>
         <TopNav onInfo={() => this.toggleInfoModal()}
-          onNewGame={() => this.props.onNewGame()} /> 
+          onNewGame={this.props.onNewGame} /> 
         {infoModal}
         <h1>HOT or COLD</h1>
       </header>
