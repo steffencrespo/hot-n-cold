@@ -4,8 +4,9 @@ import Header from './header';
 import GuessSection from './guess-section';
 import GuessCount  from './guess-count';
 import GuessList from './guess-list';
+import {connect} from 'react-redux';
 
-export default class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,3 +68,11 @@ export default class App extends Component {
     );
   }
 }
+
+export const mapStateToProps = state => ({
+  guesses: state.guesses,
+  feedback: state.feedback,
+  correctAnswer: state.correctAnswer
+});
+
+export default connect(mapStateToProps)(App);
