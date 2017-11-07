@@ -31,7 +31,7 @@ export class App extends Component {
       return;
     }
 
-    const difference = Math.abs(number - this.state.correctAnswer);
+    const difference = Math.abs(number - this.props.correctAnswer);
 
     let feedback;
     if (difference >= 50) {
@@ -60,10 +60,10 @@ export class App extends Component {
     return (
       <div>
         <Header onNewGame={() => this.newGame()} />
-        <GuessSection feedback={this.state.feedback}
+        <GuessSection feedback={this.props.feedback}
               onGuess={(number) => this.guess(number)} />
-        <GuessCount count={this.state.guesses.length} />
-        <GuessList guesses={this.state.guesses} />
+        <GuessCount count={this.props.guesses.length} />
+        <GuessList guesses={this.props.guesses} />
       </div>
     );
   }
