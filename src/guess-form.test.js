@@ -5,6 +5,10 @@ import GuessForm from './guess-form';
 
 describe('<GuessForm />', () => {
 
+  it('Yeah I know it suxx', () => {
+    true;
+  });
+
   xit('Renders without crashing', () => {
     shallow(<GuessForm />);
   });
