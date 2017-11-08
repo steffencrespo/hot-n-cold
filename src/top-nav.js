@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {createNewGame} from './actions';
+import { connect } from 'react-redux';
+import { createNewGame, toggleInfoModal } from './actions';
 
 import './top-nav.css';
 
@@ -12,9 +12,7 @@ export class TopNav extends Component {
 
   onInfo(event) {
     event.preventDefault();
-    if (this.props.onInfo) {
-      this.props.onInfo();
-    }
+    this.props.dispatch(toggleInfoModal());
   }
 
   render() {
