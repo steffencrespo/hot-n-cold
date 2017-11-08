@@ -6,10 +6,6 @@ import InfoModal from './info-modal';
 import './header.css';
 
 export class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let infoModal;
     if (this.props.showInfoModal) {

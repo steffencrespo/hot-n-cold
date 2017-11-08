@@ -4,18 +4,9 @@ import Header from './header';
 import GuessSection from './guess-section';
 import GuessCount  from './guess-count';
 import GuessList from './guess-list';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   guesses: [],
-    //   feedback: 'make your guess',
-    //   correctAnswer: Math.floor(Math.random() * 100) + 1
-    // };
-  }
-
   newGame() {
     this.setState({ 
       guesses: [],
