@@ -8,14 +8,6 @@ import { connect } from 'react-redux';
 import { guess } from './actions';
 
 export class App extends Component {
-  newGame() {
-    this.setState({ 
-      guesses: [],
-      feedback: 'make your guess',
-      correctAnswer: Math.floor(Math.random() * 100) + 1 }
-    );
-  }
-
   // guess(number) {
   //   number = parseInt(number, 10);
   //   if (isNaN(number)) {
@@ -51,9 +43,8 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Header onNewGame={() => this.newGame()} />
-        <GuessSection feedback={this.props.feedback}
-              onGuess={(number) => this.props.dispatch(guess(number))} />
+        <Header />
+        <GuessSection />
         <GuessCount count={this.props.guesses.length} />
         <GuessList guesses={this.props.guesses} />
       </div>
