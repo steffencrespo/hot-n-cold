@@ -4,10 +4,10 @@ export const createNewGame = () => ({
     correctAnswer: Math.floor(Math.random() * 100) + 1
 });
 
-export const ADD_GUESS = 'ADD_GUESS';
-export const addGuess = guesses => ({
-    type: ADD_GUESS,
-    guesses
+export const GUESS = 'GUESS';
+export const guess = number => ({
+    type: GUESS,
+    number
 });
 
 export const SET_FEEDBACK = 'SET_FEEDBACK';

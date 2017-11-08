@@ -1,4 +1,4 @@
-import { ADD_GUESS, SET_FEEDBACK, SET_CORRECT_ANSWER, CREATE_NEW_GAME, TOGGLE_INFO_MODAL } from '../actions';
+import { GUESS, SET_FEEDBACK, SET_CORRECT_ANSWER, CREATE_NEW_GAME, TOGGLE_INFO_MODAL } from '../actions';
 
 const initialState = {
   guesses: [],
@@ -8,8 +8,35 @@ const initialState = {
 };
 
 export const guessReducer = (state=initialState, action) => {
-  if(action.type === ADD_GUESS) {
-    return;
+  const newState = {};
+  if(action.type === GUESS) {
+    let number = parseInt(action.number, 10);
+    if (isNaN(number)) {
+      newState.feedback = 'please type a valid number';
+      return;
+    }
+
+    const difference = Math.abs(action.number - state.correctAnswer);
+
+    let feedback;
+    if (difference >= 50) {
+        feedback = 'You\'re Ice Cold...';
+    }
+    else if (difference >= 30) {
+        feedback = 'You\'re Cold...';
+    }
+    else if (difference >= 10) {
+        feedback = 'You\'re Warm';
+    }
+    else if (difference >= 1) {
+        feedback = 'You\'re Hot!';
+    }
+    else {
+        feedback = 'You got it!';
+    }
+
+    newState.guesses = [...state.guesses, number];
+    return Object.assign({}, state, newState);
   }
 
   else if(action.type === SET_FEEDBACK) {
