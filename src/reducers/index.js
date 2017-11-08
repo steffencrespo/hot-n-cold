@@ -1,4 +1,7 @@
-import { GUESS, SET_FEEDBACK, SET_CORRECT_ANSWER, CREATE_NEW_GAME, TOGGLE_INFO_MODAL } from '../actions';
+import { 
+  GUESS, 
+  CREATE_NEW_GAME, 
+  TOGGLE_INFO_MODAL } from '../actions';
 
 const initialState = {
   guesses: [],
@@ -38,14 +41,6 @@ export const guessReducer = (state=initialState, action) => {
       newState.feedback = feedback;
       return Object.assign({}, state, newState);
     }
-  }
-
-  else if(action.type === SET_FEEDBACK) {
-    return;
-  }
-
-  else if(action.type === SET_CORRECT_ANSWER) {
-    return;
   }
 
   else if(action.type === CREATE_NEW_GAME) {

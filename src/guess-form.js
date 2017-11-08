@@ -23,4 +23,9 @@ export class GuessForm extends Component {
     }
 }
 
-export default connect()(GuessForm);
+const mapStateToProps = state => ({
+  guessCount: state.guesses.length,
+  correctAnswer: state.correctAnswer
+});
+
+export default connect(mapStateToProps)(GuessForm);

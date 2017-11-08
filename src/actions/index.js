@@ -10,18 +10,6 @@ export const guess = number => ({
     number
 });
 
-export const SET_FEEDBACK = 'SET_FEEDBACK';
-export const setFeedback = feedback => ({
-  type: SET_FEEDBACK,
-  feedback
-});
-
-export const SET_CORRECT_ANSWER = 'SET_CORRECT_ANSWER';
-export const setCorrectAnswer = correctAnswer => ({
-  type: SET_CORRECT_ANSWER,
-  correctAnswer
-});
-
 export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
 export const toggleInfoModal = () => ({
   type: TOGGLE_INFO_MODAL
