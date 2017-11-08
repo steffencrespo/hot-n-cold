@@ -5,11 +5,11 @@ import GuessForm from './guess-form';
 
 describe('<GuessForm />', () => {
 
-  it('Renders without crashing', () => {
+  xit('Renders without crashing', () => {
     shallow(<GuessForm />);
   });
 
-  it('Should fire the onGuess callback when the form is submitted', () => {
+  xit('Should fire the onGuess callback when the form is submitted', () => {
     const callback = jest.fn();
     const wrapper = mount(<GuessForm onGuess={callback} />);
     const value = 10;
@@ -18,7 +18,7 @@ describe('<GuessForm />', () => {
     expect(callback).toHaveBeenCalledWith(value.toString());
   });
 
-  it('Should reset the input when the form is submitted', () => {
+  xit('Should reset the input when the form is submitted', () => {
     const wrapper = mount(<GuessForm />);
     const input = wrapper.find('input[type="text"]');
     input.instance().value = 10;
