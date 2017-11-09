@@ -1,25 +1,22 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import GuessForm from './guess-form';
+import { GuessForm } from './guess-form';
 
 describe('<GuessForm />', () => {
 
-  it('Yeah I know it suxx', () => {
-    true;
-  });
-
-  xit('Renders without crashing', () => {
+  it('Renders without crashing', () => {
     shallow(<GuessForm />);
   });
 
   xit('Should fire the onGuess callback when the form is submitted', () => {
-    const callback = jest.fn();
-    const wrapper = mount(<GuessForm onGuess={callback} />);
+    const dispatch = jest.fn();
+    const wrapper = mount(<GuessForm onGuess={dispatch} />);
     const value = 10;
     wrapper.find('input[type="text"]').instance().value = value;
     wrapper.simulate('submit');
-    expect(callback).toHaveBeenCalledWith(value.toString());
+    wrapper.instance.onGuess(value);
+    expect(dispatch).toHaveBeenCalledWith(onGuess(value));
   });
 
   xit('Should reset the input when the form is submitted', () => {
