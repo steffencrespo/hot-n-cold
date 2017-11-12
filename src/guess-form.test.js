@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import { GuessForm } from './guess-form';
+import { guess } from './actions';
 
 describe('<GuessForm />', () => {
 
@@ -11,20 +12,19 @@ describe('<GuessForm />', () => {
 
   xit('Should fire the onGuess callback when the form is submitted', () => {
     const dispatch = jest.fn();
-    const wrapper = mount(<GuessForm onGuess={dispatch} />);
-    const value = 10;
-    wrapper.find('input[type="text"]').instance().value = value;
+    const wrapper = mount(<GuessForm dispatch={dispatch} />);
+    const value = "10";
+    wrapper.find('input[type="text"]').node.value = value;
     wrapper.simulate('submit');
-    wrapper.instance.onGuess(value);
-    expect(dispatch).toHaveBeenCalledWith(onGuess(value));
+    expect(dispatch).toHaveBeenCalledWith(makeGuess(value));
   });
 
   xit('Should reset the input when the form is submitted', () => {
-    const wrapper = mount(<GuessForm />);
+    const wrapper = mount(<GuessForm dispatch={() => {}}/>);
     const input = wrapper.find('input[type="text"]');
-    input.instance().value = 10;
+    input.node.value = 10;
     wrapper.simulate('submit');
-    expect(input.instance().value).toEqual('');
+    expect(input.node.value).toEqual('');
   });
 
 });
